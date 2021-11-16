@@ -17,7 +17,13 @@ import config
 
 def main():
     tflib.init_tf()
-    _G, _D, Gs = pickle.load(open("results/00001-sgan-logos-1gpu/network-snapshot-002364.pkl", "rb"))
+    # Get the current working directory
+    cwd = os.getcwd()
+
+    # Print the current working directory
+    print("Current working directory: {0}".format(cwd))
+
+    _G, _D, Gs = pickle.load(open("content/ConditionalStyleGAN/results/00001-sgan-logos-1gpu/network-snapshot-002364.pkl", "rb"))
     Gs.print_layers()
 
     for i in range(0,25):
